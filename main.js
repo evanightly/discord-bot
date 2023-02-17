@@ -54,7 +54,7 @@ client.on('warn', console.log)
 
 app.get('/', (_, res) => {
     // Log in to Discord with your client's token
-    client.login(`${process.env['TOKEN']}`);
+    client.login(TOKEN);
     res.send('Running')
 })
 
