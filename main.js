@@ -9,7 +9,7 @@ const app = express()
 
 dotenv.config()
 
-const {TOKEN} = process.env
+const { TOKEN } = process.env
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.commands = new Collection();
@@ -49,6 +49,8 @@ client.on(Events.InteractionCreate, async interaction => {
         await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
     }
 });
+
+client.on('warn', console.log)
 
 app.get('/', (_, res) => {
     // Log in to Discord with your client's token
